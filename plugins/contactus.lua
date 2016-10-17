@@ -30,18 +30,18 @@ end
 end
 if msg.chat.type == 'private' and chat_info == 'true' then
 if blocks[1] == 'end' or blocks[1] == 'chat' then return nil end
-api.forwardMessage('-139110802', msg.chat.id, msg_id) 
+api.forwardMessage('-1097262976', msg.chat.id, msg_id) 
 api.sendKeyboard(msg.chat.id, '`- پیام شما ارسال شد !`\n_بزودی پاسخگو هستیم_'  ,do_keyboard_endchat(), true)
 end
 if blocks[1] == 'block' then
-if msg.reply and msg.reply.forward_from and msg.chat.type == 'group' and msg.chat.id == -139110802 and not blocks[2] then
+if msg.reply and msg.reply.forward_from and msg.chat.type == 'group' and msg.chat.id == -1097262976 and not blocks[2] then
 msg = msg.reply
 local user_id = msg.forward_from.id
  db:hset(hash, user_id, 'block')
 api.sendMessage(msg.chat.id, '_کاربر '..user_id..' بلاک شد_', true) 
 api.sendMessage(user_id, '`- متاسفیم`\n_شما بلاک شدید_\n\n*چت پایان یافت.*', true) 
 else
- if msg.chat.type == 'group' and msg.chat.id == -139110802 then
+ if msg.chat.type == 'group' and msg.chat.id == -1097262976 then
  if msg.reply then return nil end
 local user_id = blocks[2]
  db:hset(hash, user_id, 'block')
@@ -51,14 +51,14 @@ end
 end
 end
 if blocks[1] == 'unblock' then
-if msg.reply and msg.reply.forward_from and msg.chat.type == 'group' and msg.chat.id == -139110802 and not blocks[2] then
+if msg.reply and msg.reply.forward_from and msg.chat.type == 'group' and msg.chat.id == -1097262976 and not blocks[2] then
 msg = msg.reply
 local user_id = msg.forward_from.id
  db:hset(hash, user_id, 'false')
 api.sendMessage(msg.chat.id, '_کاربر '..user_id..' آنبلاک شد_', true) 
 api.sendMessage(user_id, '_شما آنبلاک شدید_', true) 
 else
- if msg.chat.type == 'group' and msg.chat.id == -139110802 then
+ if msg.chat.type == 'group' and msg.chat.id == -1097262976 then
   if msg.reply then return nil end
 local user_id = blocks[2]
  db:hset(hash, user_id, 'false')
@@ -67,7 +67,7 @@ api.sendMessage(user_id, '_شما آنبلاک شدید_', true)
 end 
 end
 end
-    if msg.reply and msg.reply.forward_from and msg.chat.type == 'group' and msg.chat.id == -139110802 then
+    if msg.reply and msg.reply.forward_from and msg.chat.type == 'group' and msg.chat.id == -1097262976 then
    msg = msg.reply_to_message
     local receiver = msg.forward_from.id
     local input = blocks[1]
